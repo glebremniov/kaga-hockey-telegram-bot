@@ -1,15 +1,16 @@
-const { Telegraf } = require('telegraf')
+const { Telegraf, Markup } = require('telegraf')
 const bot = new Telegraf(process.env.BOT_TOKEN)
 
-bot.start(ctx => {
-  console.log('Received /start command')
-  try {
-    return ctx.reply('Hi')
-  } catch (e) {
-    console.error('error in start action:', e)
-    return ctx.reply('Error occured')
-  }
-})
+const keyboard = Markup.inlineKeyboard([
+  Markup.button.url('❤️', 'http://telegraf.js.org'),
+  Markup.button.callback('Delete', 'delete')
+])
+
+bot.hears('hi', (ctx) => ctx.reply('Hey there'))
+bot.start(ctx => ctx.reply('Start message'))
+bot.help(ctx => ctx.reply('Help'))
+bot.on('message', ctx => ctx.copyMessage(ctx.message.chat.id, keyboard))
+bot.action('delete', ctx => ctx.deleteMessage())
 
 bot.launch()
 
