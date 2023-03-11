@@ -11,6 +11,8 @@ bot.start(ctx => {
   }
 })
 
+bot.launch()
+
 // AWS event handler syntax (https://docs.aws.amazon.com/lambda/latest/dg/nodejs-handler.html)
 exports.handler = async event => {
   try {
@@ -21,5 +23,3 @@ exports.handler = async event => {
     return { statusCode: 400, body: 'This endpoint is meant for bot and telegram communication' }
   }
 }
-
-module.exports = bot
