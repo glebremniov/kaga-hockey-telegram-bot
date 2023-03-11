@@ -3,16 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
-  "type": "module",
   "scripts": {
-    "start": "node --experimental-specifier-resolution=node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "glebremniov",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.0.3",
-    "firebase": "^9.17.2",
+    "netlify-lambda": "^2.0.16",
     "telegraf": "^4.12.2"
   },
   "devDependencies": {
